@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0;">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image" href="images/eight.png">
+    <title> Magic 8 Ball </title>
+</head>
+
+<body>
+    <div class="main_container">
+        <h1 class="header_style"> MAGIC 8 BALL GAME</h1>
+        <p class="subTitles">Think about a question, then press the magic ball once to see your answer.</p>
+        <div class="option_buttons" onclick="answerFunction()"> </div>
+        <div class="answer_titles" id="answer"></div>
+
+    </div>
+
+    <script>
+        function generateNumber() {
+            let num = Math.floor(Math.random() * (20 - 1 + 1) + 1);
+            return num;
+        }
+
+
+        const results = {
+            '1': "Signs point to yes",
+            '2': "It is decidedly so",
+            '3': "Better not tell you now",
+            '4': "Yes, definitely",
+            '5': "My reply is no",
+            '6': "As I see it, yes",
+            '7': " Most likely",
+            '8': "Cannot predict now",
+            '9': "Do not count on it",
+            '10': "Outlook good	",
+            '11': "My sources say no",
+            '12': "It is certain",
+            '13': "Reply hazy, try again",
+            '14': "Very doubtful",
+            '15': "Ask again later",
+            '16': "You may rely on it",
+            '17': "Outlook not so good",
+            '18': "Yes",
+            '19': "Concentrate and ask again",
+            '20': "Without a doubt",
+        };
+        function answerFunction() {
+            let randomNum = generateNumber();
+            let ballAnswer = results[randomNum];
+            modifyDiv("answer", ballAnswer);
+        }
+
+        function modifyDiv(divId, message) {
+            let messageDiv = document.getElementById(divId);
+            messageDiv.innerText = message;
+        }
+
+    </script>
+</body>
+
+</html>
